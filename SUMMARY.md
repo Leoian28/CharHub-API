@@ -17,14 +17,14 @@
 
 * [Usage with Third-Party UIs](inference-api/usage-with-third-party-uis.md)
 
-## Extensions
+## 🎭 Stages
 
-* [🦅 Overview](extensions/overview.md)
-* [🏗️ Developing an Extension](extensions/developing-an-extension/README.md)
-  * [▶️ Quickstart / Setup](extensions/developing-an-extension/quickstart-setup.md)
-  * [💭 Concepts](extensions/developing-an-extension/concepts.md)
-  * [⚙️ Config / Metadata](extensions/developing-an-extension/config-metadata.md)
-  * [📦 State](extensions/developing-an-extension/state.md)
-  * [🔗 Examples / Resources](extensions/developing-an-extension/examples-resources.md)
-  * [🛫 Future Directions](extensions/developing-an-extension/future-directions.md)
-* [🛞 Using an Extension](extensions/using-an-extension.md)
+* [🦅 Overview](stages/overview.md)
+* [🏗️ Developing a Stage](stages/developing-a-stage/README.md)
+  * [▶️ Quickstart / Setup](stages/developing-a-stage/quickstart-setup.md)
+  * [💭 Concepts](stages/developing-a-stage/concepts.md)
+  * [⚙️ Config / Metadata](stages/developing-a-stage/config-metadata.md)
+  * [📦 State](stages/developing-a-stage/state.md)
+  * [🔗 Examples / Resources](stages/developing-a-stage/examples-resources.md)
+  * [🛫 Future Directions](stages/developing-a-stage/future-directions.md)
+* [🛞 Using an Extension](stages/using-an-extension.md)
