@@ -8,17 +8,45 @@ There are two main ways to develop a stage: locally or within a GitHub Codespace
 
 ## Locally
 
-_All commands are for Ubuntu and MacOS; the node and yarn install process for Windows is probably different._
+### 1. Install node@21.7.1
 
-* Install node@21.7.1 and yarn.
+<details>
+
+<summary>Windows</summary>
+
+1. Download and install nvm-windows from [https://github.com/coreybutler/nvm-windows](https://github.com/coreybutler/nvm-windows).
+
+<!---->
+
+2. Open a command prompt and run:
+
+```
+nvm install 21.7.1
+nvm use 21.7.1
+```
+
+</details>
+
+<details>
+
+<summary>Linux and MacOS</summary>
 
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
 nvm install 21.7.1
-npm install --global yarn
+nvm use 21.7.1
 ```
 
-* Create a new repo using the template at [https://github.com/CharHubAI/stage-template](https://github.com/CharHubAI/stage-template) and download it.
+</details>
+
+### 2. Install yarn
+
+```
+corepack enable
+yarn -v
+```
+
+### 3. Create a new repo using the template at [https://github.com/CharHubAI/stage-template](https://github.com/CharHubAI/stage-template) and download it.
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -27,7 +55,7 @@ git clone https://github.com/your-username/your-stage-name
 cd your-stage-name
 ```
 
-* Run it.
+### 4. Run it.
 
 ```
 yarn install
@@ -38,41 +66,27 @@ You should see this output on the command line, and this in a browser window.
 
 <img src="../../.gitbook/assets/Screenshot from 2024-04-11 06-19-57.png" alt="" data-size="original"><img src="../../.gitbook/assets/Screenshot from 2024-04-11 06-20-21.png" alt="" data-size="original">
 
-* You can skip ahead to the other sections in this guide for a while to work on it, or go straight to the rest of the setup.
+* You can skip ahead to the other sections in this guide for a while to work on it, or go straight to the rest of the setup. To run in chat, you'll have to instead run:
+
+```
+yarn dev --host --mode staging
+```
+
 * When ready to push, for the build to submit to Chub, you'll have to [add an API key. ](quickstart-setup.md#adding-a-write-token)
 
-## Using GitHub Codespaces
+## In-Chat Live Coding vs the Test Runner
 
-* Go to the Stages Template at [https://github.com/CharHubAI/stage-template](https://github.com/CharHubAI/stage-template).
-* Click on 'Use this template' -> 'Open in a codespace'.
+By default, when you run a stage in development, rather than waiting for a chat that may not exist it uses the test runner, which is in src/TestRunner.tsx. There are some example tests in the template, and the initialization data it uses is in src/assets/test-init.json.
 
-<figure><img src="../../.gitbook/assets/Screenshot from 2024-04-10 05-01-43.png" alt="" width="375"><figcaption></figcaption></figure>
-
-* In the codespace that opens up, go to the terminal at the bottom and enter:
+If you'd rather edit with a live chat, it's most straightforward when running locally. Just run with the command:
 
 ```
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash
-nvm install 21.7.1
-yarn install
-yarn dev --host
+yarn dev --host --mode staging
 ```
 
-<figure><img src="../../.gitbook/assets/codespace-terminal.jpg" alt="" width="375"><figcaption><p>The terminal's location in the Codespace window.</p></figcaption></figure>
+Once you're running locally, go to "Chat Settings", hit 'Staging URL', and put in the URL and refresh the page. This will only work with the localhost version of the URL.
 
-* Follow the prompt to open the browser window. This is the running stage.&#x20;
-
-<figure><img src="../../.gitbook/assets/codespace-open-browser.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
-* You can skip ahead to the other sections in this guide for a while to work on it, or go straight to the rest of the setup.
-* To push your changes, go to 'Source Control' -> 'Publish Branch'
-
-<figure><img src="../../.gitbook/assets/publish-branch.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
-* A message will come up in the lower right with a link to the new project.
-
-<figure><img src="../../.gitbook/assets/codespace-open-github.jpg" alt="" width="375"><figcaption></figcaption></figure>
-
-* For the build to submit to Chub, you'll have to [add an API key. ](quickstart-setup.md#adding-a-write-token)
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ## Adding an API Key
 
@@ -109,32 +123,6 @@ In any \*.yaml, use:
 ```python
 # .*
 ```
-
-## In-Chat Live Coding vs the Test Runner
-
-By default, when you run a stage in development, rather than waiting for a chat that may not exist it uses the test runner, which is in src/TestRunner.tsx. There are some example tests in the template, and the initialization data it uses is in src/assets/test-init.json.
-
-If you'd rather edit with a live chat, it's most straightforward when running locally. Just add the stage to a chat in chat settings (you'll need to have pushed at least once so the stage exists), then hit 'Edit' and add the localhost URL.&#x20;
-
-For a GitHub Codespace, it's slightly more involved. Run the project with the flag "--mode staging" set so that the TestRunner isn't run. When you do this, the corner popup has a button to 'Make Public' the running space. Press this.
-
-<figure><img src="../../.gitbook/assets/open_port.jpeg" alt=""><figcaption></figcaption></figure>
-
-If you miss this, you can change it in settings instead:
-
-<figure><img src="../../.gitbook/assets/alt_open_port.jpeg" alt=""><figcaption></figcaption></figure>
-
-Once you're running locally or in the Codespace, go to "Chat Settings", hit 'Edit', and put in the URL.
-
-<figure><img src="../../.gitbook/assets/editor_settings.jpeg" alt=""><figcaption></figcaption></figure>
-
-If using a Codespace, you'll have to confirm before it will run. You may have to refresh the page after doing this.
-
-<figure><img src="../../.gitbook/assets/confirm_see.jpeg" alt=""><figcaption></figcaption></figure>
-
-#### Other Online IDEs
-
-In theory a similar process would work with CodeSandbox as long as it was connected to your GitHub project and committed to it correctly, but it hasn't been tried and a guide written yet. If you have some other preferred platform, let us know.
 
 
 

@@ -27,4 +27,5 @@
   * [📦 State](stages/developing-a-stage/state.md)
   * [🔗 Examples / Resources](stages/developing-a-stage/examples-resources.md)
   * [🛫 Future Directions](stages/developing-a-stage/future-directions.md)
-* [🛞 Using an Extension](stages/using-an-extension.md)
+  * [🛴 Optional: GitHub Codespaces](stages/developing-a-stage/optional-github-codespaces.md)
+* [🛞 Using a Stage](stages/using-a-stage.md)
